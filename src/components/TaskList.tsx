@@ -17,13 +17,16 @@ export function TaskList() {
   function handleCreateNewTask() {
     const id = Math.floor(Math.random() * 256);
 
-    const newTask = {
-      id,
-      title: newTaskTitle,
-      isComplete: false,
-    }
-
-    setTasks([...tasks, newTask])
+    if(newTaskTitle !== '') {
+      const newTask = {
+        id,
+        title: newTaskTitle,
+        isComplete: false,
+      }
+  
+      setTasks([...tasks, newTask]);
+      setNewTaskTitle('');
+    }    
   }
 
   function handleToggleTaskCompletion(id: number) {
